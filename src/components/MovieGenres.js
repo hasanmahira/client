@@ -18,7 +18,6 @@ export class MovieGenres extends Component {
     render() {
         return (
             <Fragment>
-                <h1 className="display-4 my-3">Movie Genres</h1>
                 <Query query={MoviesGenres_QUERY}>
                     {
                         ({ loading, error, data }) => {
