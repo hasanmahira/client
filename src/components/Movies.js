@@ -6,7 +6,7 @@ import MovieItems from './MovieItems';
 
 const Movies_QUERY = gql`
 query MoviesQUERY {
-    movieList {
+    movieList (pageNumber:0, pageSize:10) {
         seriesTitle
         star1
         star2

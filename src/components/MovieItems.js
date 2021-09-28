@@ -11,16 +11,15 @@ export default function Movies({ movieList: { seriesTitle, posterLink, star1, st
 
     return (
         <div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="card" >
+            <div class="card-list">
+                    <div class="card col-sm-3 col-lg-3" role="group">
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-lg-11">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Follow" style={{ margin: 'right' }}>+ </button>
                                     <img src={posterLink} alt="IMBD" style={{ width: 100, display: 'block', margin: 'auto' }}></img>
-                                    <h6 class="card-subtitle">Rating: {imdbRating}</h6>
-                                    <h4 class="modal-title">{seriesTitle} </h4>
+                                    <h7 class="card-subtitle">Rating: {imdbRating}</h7>
+                                    <h5 class="modal-title">{seriesTitle} </h5>
                                 </div>
                                 <div class="col-lg-1">
                                 </div>
@@ -77,7 +76,6 @@ export default function Movies({ movieList: { seriesTitle, posterLink, star1, st
                     </div>
                     <br></br>
                 </div>
-            </div>
         </div>
     )
 }
