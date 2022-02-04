@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import MovieDetail from './MovieDetail'
 
 
-export default function Movies({ movieList: { seriesTitle, posterLink, star1, star2, star3, star4, overview, genre, imdbRating, director, releasedYear, runtime } }) {
+export default function MovieItems({ movieList: { seriesTitle, posterLink, star1, star2, star3, star4, overview, genre, imdbRating, director, releasedYear, runtime } }) {
 
     const [show, setShow] = useState(false);
 
@@ -18,7 +18,7 @@ export default function Movies({ movieList: { seriesTitle, posterLink, star1, st
                                 <div class="col-lg-11">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Follow" style={{ margin: 'right' }}>+ </button>
                                     <img src={posterLink} alt="IMBD" style={{ width: 100, display: 'block', margin: 'auto' }}></img>
-                                    <h7 class="card-subtitle">Rating: {imdbRating}</h7>
+                                    <h6 class="card-subtitle">Rating: {imdbRating}</h6>
                                     <h5 class="modal-title">{seriesTitle} </h5>
                                 </div>
                                 <div class="col-lg-1">

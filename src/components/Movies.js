@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import { Fragment } from 'react';
 import MovieItems from './MovieItems';
 
 const Movies_QUERY = gql`
@@ -33,7 +32,7 @@ export class Movies extends Component {
                     {
                         ({ loading, error, data }) => {
                             if (loading) return <h4>Loaading Movies...</h4>
-                            if (error) console.log(error)
+                            if (error) console.log("error",error)
                             console.log(data)
 
                             return <Fragment>

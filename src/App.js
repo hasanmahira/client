@@ -1,33 +1,44 @@
-import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import React, { Component } from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 // import UserInterests from './components/UserInterests';
-import './App.css';
+import "./App.css";
 // import logo from './logo.png';
-import Movies from './components/Movies';
+import Movies from "./components/Movies";
 // import MovieGenres from './components/MovieGenres';
-import NavBar from './components/NavBar';
-import { HashRouter as Router, Route } from 'react-router-dom'
+import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Stars from "./components/Stars";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/graphql'
+  uri: "http://localhost:3000/graphql",
 });
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className='router-div'>
-          <ApolloProvider client={client}>
+        <ApolloProvider client={client}>
+          <Route path="/" component={App}>
             <NavBar />
             <div className="container">
-            <Route exact path='/' component={Movies} />
-              {/* <UserInterests /> */}
-              {/* <Movies /> */}
-              {/* <MovieGenres /> */}
+              <Switch>
+                <Route exact path="/" component={Movies} />
+                <Route exact path="/movies" component={Movies} />
+                <Route exact path="/stars" component={Stars} />
+              </Switch>
             </div>
-          </ApolloProvider>
-        </div>
+          </Route>
+          <div className="container">
+            <Route path="/login" component={Login} />
+          </div>
+          <div className="container">
+          <Route path="/signup" component={SignUp} />
+          </div>
+
+        </ApolloProvider>
       </Router>
     );
   }
