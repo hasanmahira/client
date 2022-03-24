@@ -13,7 +13,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 
 const client = new ApolloClient({
-  uri: "http://localhost:3000/graphql",
+  uri: "https://movie-fan-api.herokuapp.com/graphql",
 });
 
 class App extends Component {
