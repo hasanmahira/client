@@ -3,14 +3,11 @@ import gql from "graphql-tag";
 import { Query, Mutation } from "react-apollo";
 
 const SignUp_QUERY = gql`
-query SignUpQUERY {
-    mutation createUser($user: UserInputType!) {
-        createUser(user: $user) {
-          email
-        }
-      }
-      
-}
+  mutation createUser($user: UserInputType!) {
+    createUser(user: $user) {
+      email
+    }
+  }
 `;
 // const Login_QUERY = gql`{
 //     "user": {
@@ -25,7 +22,14 @@ query SignUpQUERY {
 //   `;
 
 export default function SignUp() {
-     const [state, setstate] = useState({ user_name: "", first_name: "",  surname: "", email: "",  password_digest: "", yob: "" });
+  const [state, setstate] = useState({
+    user_name: "",
+    first_name: "",
+    surname: "",
+    email: "",
+    password_digest: "",
+    yob: "",
+  });
 
   //   const submitHandler = (e) => {
   //     e.preventDefault();
@@ -43,7 +47,7 @@ export default function SignUp() {
           <div class="row">
             <div class="col-lg-3" />
             <div class="col-lg-5">
-              <div class="page-header"> 
+              <div class="page-header">
                 <h1 id="forms">Sign Up</h1>
               </div>
               {/* user_name */}
@@ -84,7 +88,7 @@ export default function SignUp() {
               {/* surname */}
               <div class="form-group">
                 <label for="surname" class="form-label mt-4">
-                Surname
+                  Surname
                 </label>
                 <input
                   type="text"
@@ -97,22 +101,20 @@ export default function SignUp() {
                   value={state.surname}
                 />
               </div>
-               {/* yob */}
-               <div class="form-group">
+              {/* yob */}
+              <div class="form-group">
                 <label for="yob" class="form-label mt-4">
-                Surname
+                  Surname
                 </label>
                 <input
                   type="text"
                   class="form-control"
                   id="yob"
                   placeholder="Enter Year of Birth"
-                  onChange={(e) =>
-                    setstate({ ...state, yob: e.target.value })
-                  }
+                  onChange={(e) => setstate({ ...state, yob: e.target.value })}
                   value={state.yob}
                 />
-              </div>              
+              </div>
               {/* email */}
               <div class="form-group">
                 <label for="exampleInputEmail1" class="form-label mt-4">
@@ -155,7 +157,7 @@ export default function SignUp() {
         <div class="row">
           <div class="col-lg-4" />
           <div class="col-lg-2">
-            {/* <Mutation
+            <Mutation
               mutation={SignUp_QUERY}
               refetchQueries={[{ query: SignUp_QUERY }]}
             >
@@ -166,7 +168,7 @@ export default function SignUp() {
                   Sign In
                 </button>
               )}
-            </Mutation> */}
+            </Mutation>
 
             {/* <button type="submit" class="btn btn-primary">
               Sign In

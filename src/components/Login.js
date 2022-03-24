@@ -1,26 +1,22 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 
-const Login_QUERY = gql`
-query LoginQUERY {
-    {
-        login(email: $details.email, password: $details.password)
-    }  
-}
-`;
-
 export default function Login() {
-  const [details, setDetails] = useState({ email: "", password: "" });
+  const [state, setstate] = useState({
+    email: "email",
+    password: "password",
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
-    Login(details);
   };
 
-  const Login = (details) => {
-    console.log("details", details);
-  };
+  const Login_QUERY = gql`
+    {
+      login(email: "mates@gmail.com", password: "123")
+    }
+  `;
 
   return (
     <div>
@@ -43,9 +39,9 @@ export default function Login() {
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
                   onChange={(e) =>
-                    setDetails({ ...details, email: e.target.value })
+                    setstate({ ...state, email: e.target.value })
                   }
-                  value={details.email}
+                  value={state.email}
                 />
                 <small id="emailHelp" class="form-text text-muted">
                   We'll never share your email with anyone else.
@@ -61,9 +57,9 @@ export default function Login() {
                   id="exampleInputPassword1"
                   placeholder="Password"
                   onChange={(e) =>
-                    setDetails({ ...details, password: e.target.value })
+                    setstate({ ...state, password: e.target.value })
                   }
-                  value={details.password}
+                  value={state.password}
                 />
               </div>
             </div>
@@ -73,9 +69,14 @@ export default function Login() {
           <div class="col-lg-4" />
 
           <div class="col-lg-2">
-            <button type="submit" class="btn btn-primary">
-              Sign In
-            </button>
+            <Query
+              query={Login_QUERY}
+              refetchQueries={[{ query: Login_QUERY }]}
+            >
+            </Query>
+            <a className="nav-link active" href="/movies">
+                <button>Sign In</button>
+              </a>
           </div>
 
           <div class="col-lg-2">

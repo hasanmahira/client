@@ -23,6 +23,7 @@ export class Stars extends Component {
                 <Query query={Stars_QUERY}>
                     {
                         ({ loading, error, data }) => {
+                            console.log({data})
                             if (loading) return <h4>Loaading Stars...</h4>
                             if (error) console.log(error)
                             console.log(data)
